@@ -3,6 +3,10 @@ package src.factory;
 public class Plane implements Flying {
   private String model;
 
+  /**
+   * Plane constructor
+   * @param model - Plane model name
+   */
   public Plane(String model) {
     this.model = model;
   }

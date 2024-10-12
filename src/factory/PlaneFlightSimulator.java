@@ -6,7 +6,7 @@ public class PlaneFlightSimulator extends FlightSimulator {
   }
 
   @Override
-  public Plane create(String model) {
+  public Flying create(String model) {
     return new Plane(model);
   }
 

@@ -1,4 +1,4 @@
-package src.factory;
+package src;
 
 public abstract class FlightSimulator {
   private int count = 0;
@@ -27,10 +27,11 @@ public abstract class FlightSimulator {
   /**
    * Add a new flier to the list
    * @param name - Flier identifier
+   * @param strategy - Flight strategy (short, medium or long)
    */
-  public void add(String name) {
+  public void add(String name, Flight strategy) {
     if (this.size < fliers.length) {
-      fliers[this.size++] = create(name);
+      fliers[this.size++] = create(name, strategy);
       System.out.println(fliers[this.size-1] + " created");
     }
   }
@@ -43,10 +44,7 @@ public abstract class FlightSimulator {
       System.out.println("No fliers");
       return;
     }
-    Flying f = this.fliers[currentFlier];
-    f.takeoff();
-    /* Flying stuff */
-    f.land();
+    this.fliers[currentFlier].execute();
     count++;
     this.currentFlier = (++this.currentFlier) % this.size;
   }
@@ -56,5 +54,5 @@ public abstract class FlightSimulator {
    * @param identifier
    * @return
    */
-  public abstract Flying create(String identifier);
+  public abstract Flying create(String identifier, Flight strategy);
 }

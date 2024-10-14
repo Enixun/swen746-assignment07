@@ -1,12 +1,28 @@
-package src.factory;
+package src;
+import java.util.Random;
 
 public class TestFlightSimulators {
+  public static final Random RNG = new Random(2);
+
   public static void test(FlightSimulator fs, String[] flyerNames) {
     System.out.println("Flight before init:");
     fs.flight();
     System.out.println("Adding flyers..");
     for (String n: flyerNames) {
-      fs.add(n);
+      Flight flight;
+
+      switch (RNG.nextInt(3)) {
+        case 0:
+          flight = new MediumFlight();
+          break;
+        case 1:
+          flight = new LongFlight();
+          break;
+        default:
+          flight = new ShortFlight();
+      }
+
+      fs.add(n, flight);
     }
     System.out.println("Begin " + fs.size() * 2 +" flights...");
     for (int i = 0; i < fs.size() * 2; i++) {

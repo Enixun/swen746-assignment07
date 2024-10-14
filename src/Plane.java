@@ -1,14 +1,15 @@
-package src.factory;
+package src;
 
-public class Plane implements Flying {
+public class Plane extends Flying {
   private String model;
 
   /**
    * Plane constructor
    * @param model - Plane model name
    */
-  public Plane(String model) {
+  public Plane(String model, Flight strategy) {
     this.model = model;
+    this.setFlightStrategy(strategy);
   }
 
   public void takeoff() {

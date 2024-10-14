@@ -1,4 +1,4 @@
-package src.factory;
+package src;
 
 public class PlaneFlightSimulator extends FlightSimulator {
   public PlaneFlightSimulator(int numFlights) {
@@ -6,8 +6,8 @@ public class PlaneFlightSimulator extends FlightSimulator {
   }
 
   @Override
-  public Flying create(String model) {
-    return new Plane(model);
+  public Flying create(String model, Flight strategy) {
+    return new Plane(model, strategy);
   }
 
   public static void main(String[] args) {

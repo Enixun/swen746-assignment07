@@ -1,25 +1,28 @@
-package src.factory;
+package src;
 
-public class Bird implements Flying {
+public class Bird extends Flying {
   private String breed;
 
   /**
    * Bird constructor
    * @param breed - Species common name
    */
-  public Bird(String breed) {
+  public Bird(String breed, Flight strategy) {
     this.breed = breed;
+    this.setFlightStrategy(strategy);
   }
 
   public String breed() {
     return this.breed;
   }
 
-  public void takeoff() {
+  @Override
+  protected void takeoff() {
     System.out.println("The " + this.breed + " takes flight...");
   }
 
-  public void land() {
+  @Override
+  protected void land() {
     System.out.println("The " + this.breed + " lands.");
   }
 

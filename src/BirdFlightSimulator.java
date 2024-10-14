@@ -1,9 +1,9 @@
-package src.factory;
+package src;
 
 public class BirdFlightSimulator extends FlightSimulator{
   @Override
-  public Flying create(String breed) {
-    return new Bird(breed);
+  public Flying create(String breed, Flight strategy) {
+    return new Bird(breed, strategy);
   }
 
   public BirdFlightSimulator(int numFlights) {

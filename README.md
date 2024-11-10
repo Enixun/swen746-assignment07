@@ -66,3 +66,9 @@ strategy was completely free of conidtional blocks. Each was
 succinctly written for its own use. This is extendible by being 
 able to add new `Flight` strategies without the worry of how it 
 could affect existing ones.
+
+## Requirements
+![requirements diagram for flight simulator](/assets/requirements_diagram.png)
+
+### Description
+A flight simulator is required to keep track of multiple flying objects and their flight patterns. Flights can be separated in short, medium or long flights; these details will be left to the Flying object. A Flying interface is used to standardize flying objects, for current and future developers to add additional objects.
